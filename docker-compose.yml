@@ -6,7 +6,6 @@ services:
   ps:
     tty: true # allows log to stdout
     build: ./docker/prestashop
-    env_file: config.env
     ports:
       - 8080:80  # for external access
       - 8443:443 # for external access
@@ -35,7 +34,6 @@ services:
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-    env_file: config.env
     cap_add:
       - SYS_NICE  # CAP_SYS_NICE
     environment:
